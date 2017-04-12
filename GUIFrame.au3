@@ -6,16 +6,18 @@
 ; ===============================================================================================================================
 
 ; #CONSTANTS# ===================================================================================================================
-Global Enum $GUIFRAME_HANDLE, $GUIFRAME_TITLE, $GUIFRAME_WIDTH, $GUIFRAME_HEIGHT, $GUIFRAME_STYLE, $GUIFRAME_EXSTYLE
+Global Enum $GUIFRAME_HANDLE, $GUIFRAME_TITLE, $GUIFRAME_WIDTH, $GUIFRAME_HEIGHT, $GUIFRAME_STYLE, $GUIFRAME_EXSTYLE, $GUIFRAME_CONTROLS
 ; ===============================================================================================================================
 
 Func _GUIFrame_CreateFrame($sTitle = "GUI", $iWidth = 400, $iHeight = 400, $nStyle = -1, $nExStyle = -1)
-	Local $aGUIFrame[6]
+	Local $aGUIFrame[7]
 	_GUIFrame_Title($aGUIFrame, $sTitle)
 	_GUIFrame_Width($aGUIFrame, $iWidth)
 	_GUIFrame_Height($aGUIFrame, $iHeight)
 	_GUIFrame_Style($aGUIFrame, $nStyle)
 	_GUIFrame_ExStyle($aGUIFrame, $nExStyle)
+	Local $aControls[0]
+	$aGUIFrame[$GUIFRAME_CONTROLS] = $aControls
 	Return $aGUIFrame
 EndFunc
 
