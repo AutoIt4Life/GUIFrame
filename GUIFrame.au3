@@ -12,7 +12,7 @@ Global Enum $GUIFRAME_HANDLE, $GUIFRAME_TITLE, $GUIFRAME_WIDTH, $GUIFRAME_HEIGHT
 Func _GUIFrame_CreateFrame($sTitle = "GUI", $iWidth = 400, $iHeight = 400, $nStyle = -1, $nExStyle = -1)
 	Local $aGUIFrame[6]
 	_GUIFrame_Title($aGUIFrame, $sTitle)
-	$aGUIFrame[$GUIFRAME_WIDTH] = $iWidth
+	_GUIFrame_Width($aGUIFrame, $iWidth)
 	$aGUIFrame[$GUIFRAME_HEIGHT] = $iHeight
 	$aGUIFrame[$GUIFRAME_STYLE] = $nStyle
 	$aGUIFrame[$GUIFRAME_EXSTYLE] = $nExStyle
@@ -22,5 +22,11 @@ EndFunc
 Func _GUIFrame_Title(ByRef $aGUIFrame, $sTitle = Default)
 	If $sTitle = Default Then Return $aGUIFrame[$GUIFRAME_TITLE]
 	$aGUIFrame[$GUIFRAME_TITLE] = $sTitle
+	Return True
+EndFunc
+
+Func _GUIFrame_Width(ByRef $aGUIFrame, $iWidth = Default)
+	If $iWidth = Default Then Return $aGUIFrame[$GUIFRAME_WIDTH]
+	$aGUIFrame[$GUIFRAME_WIDTH] = $iWidth
 	Return True
 EndFunc
