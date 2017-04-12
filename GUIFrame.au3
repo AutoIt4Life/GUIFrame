@@ -13,7 +13,7 @@ Func _GUIFrame_CreateFrame($sTitle = "GUI", $iWidth = 400, $iHeight = 400, $nSty
 	Local $aGUIFrame[6]
 	_GUIFrame_Title($aGUIFrame, $sTitle)
 	_GUIFrame_Width($aGUIFrame, $iWidth)
-	$aGUIFrame[$GUIFRAME_HEIGHT] = $iHeight
+	_GUIFrame_Height($aGUIFrame, $iHeight)
 	$aGUIFrame[$GUIFRAME_STYLE] = $nStyle
 	$aGUIFrame[$GUIFRAME_EXSTYLE] = $nExStyle
 	Return $aGUIFrame
@@ -22,6 +22,12 @@ EndFunc
 Func _GUIFrame_Title(ByRef $aGUIFrame, $sTitle = Default)
 	If $sTitle = Default Then Return $aGUIFrame[$GUIFRAME_TITLE]
 	$aGUIFrame[$GUIFRAME_TITLE] = $sTitle
+	Return True
+EndFunc
+
+Func _GUIFrame_Height(ByRef $aGUIFrame, $iHeight = Default)
+	If $iHeight = Default Then Return $aGUIFrame[$GUIFRAME_HEIGHT]
+	$aGUIFrame[$GUIFRAME_HEIGHT] = $iHeight
 	Return True
 EndFunc
 
